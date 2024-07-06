@@ -10,21 +10,27 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v0
+      - uses: actions/checkout@v3
 
       - name: Get latest release
         id: get-latest-release
-        uses: Killercavin/get-latest-release@v0
+        uses: actions/github-script@v6
         with:
-          myToken: ${{ github.token }}
-          view_top: 1
+          script: |
+            const release = await github.rest.repos.getLatestRelease({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+            });
+            return release.data.tag_name;
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Readme Download Button Action
         env:
           GITHUB_USER: "Killercavin"
           REPO: "WebDevelopment"
           FORMAT: "zip"
-          VERSION: "${{ steps.get-latest-release.outputs.tag_name }}"
+          VERSION: "${{ steps.get-latest-release.outputs.result }}"
           COLOR: "blue"
           BEGIN_TAG: "<!-- BEGIN LATEST DOWNLOAD BUTTON -->"
           END_TAG: "<!-- END LATEST DOWNLOAD BUTTON -->"
@@ -32,8 +38,8 @@ jobs:
           UPDATE=$(cat README.md | perl -0777 -pe 's#(${{ env.BEGIN_TAG }})(?:.|\n)*?(${{ env.END_TAG }})#${1}\n[![Download ${{ env.FORMAT }}](https://custom-icon-badges.herokuapp.com/badge/-Download-${{ env.COLOR }}?style=for-the-badge&logo=download&logoColor=white "Download ${{ env.FORMAT }}")](https://github.com/${{ env.GITHUB_USER }}/${{ env.REPO }}/archive/${{ env.VERSION }}.${{ env.FORMAT }})\n${2}#g')
           echo "${UPDATE}" > README.md
 
-      - uses: EndBug/add-and-commit@v0
+      - uses: EndBug/add-and-commit@v8
         with:
-          message: "docs(readme): Bump download button version to ${{ steps.get-latest-release.outputs.tag_name }}"
+          message: "docs(readme): Bump download button version to ${{ steps.get-latest-release.outputs.result }}"
           default_author: github_actions
-          branch: main
+          branch: main # Ensure this matches your repository's default branch name
