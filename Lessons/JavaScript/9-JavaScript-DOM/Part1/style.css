@@ -1,0 +1,29 @@
+html, body, *{
+    background: #245;
+}
+
+.container{
+    margin: 12.5%;
+    padding: 5px;
+    border: 2.5px solid #fff;
+    border-radius: 7.5px;
+    text-align: center;
+}
+
+#main-heading{
+    background: inherit;
+    color: #fff;
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.container ul{
+    list-style-type: none;
+    margin: 0 17% 5% 10%;
+}
+
+.list-items{
+    background: #fff;
+    border: 1px solid #000;
+    font-weight: bold;
+}
