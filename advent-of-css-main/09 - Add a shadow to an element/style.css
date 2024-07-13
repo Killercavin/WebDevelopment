@@ -1,0 +1,18 @@
+.box {
+    padding: 20px;
+    /* Add padding to the element */
+    width: 50%;
+    /* Set the width of the element */
+    margin: 30px auto;
+    /* Center the element horizontally */
+    background: #000;
+    /* Set the background color of the element */
+    color: #fff;
+    /* Set the text color of the element */
+
+    /* Add a shadow to the element */
+
+    /* READUP: https://www.w3schools.com/cssref/css3_pr_box-shadow.php */
+
+    box-shadow: 2.5px 5px #333;
+}

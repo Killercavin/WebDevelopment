@@ -1,0 +1,6 @@
+/* Add a gradient background to an element */
+/* Create a gradient that goes from #ffcccc to #ff9999 from top to bottom */
+
+.gradient-background{
+    background: linear-gradient(to bottom, #ffcccc, #ff9999);
+}

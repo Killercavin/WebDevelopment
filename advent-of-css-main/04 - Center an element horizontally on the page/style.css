@@ -1,0 +1,4 @@
+.center {
+    width: 50%; /* Sets the width of the element */
+    margin: 0 auto; /* set the margin of top && bottom to 0 and margins of left && right to auto */
+  }
