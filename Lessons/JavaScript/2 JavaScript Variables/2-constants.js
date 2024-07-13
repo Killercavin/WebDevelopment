@@ -15,3 +15,6 @@ console.log(christmas_2024);
 const COLOR_GREEN = 'green';
 
 // Regardless of the naming convention, it's best to use descriptive names for your variables.
+
+let christmass2024 = '12-25-2024';
+console.log(`${christmass2024}`); // gives the same output but variables are distinct

@@ -1,0 +1,20 @@
+ /* Add a transition effect to an element */
+      /* TODO:
+      Set the background color of the element
+      Add a transition effect to the background color of the element of 0.5s
+      Set the transition to 'ease-out'
+
+      BONUS: play with different easings to get a feel for how they work.
+      READUP: https://developer.mozilla.org/en-US/docs/Web/CSS/easing-function
+      */
+
+      /* Add a hover effect to the element */
+
+    .transition-effect{
+        background: #ffcccc;
+        transition: 0.5s ease-out;
+    }
+
+    .transition-effect:hover{
+        background-color: #ff9999;
+    }

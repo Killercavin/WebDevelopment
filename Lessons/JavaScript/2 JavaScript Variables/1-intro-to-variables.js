@@ -13,4 +13,5 @@ variableDeclaration = 'value';
 
 // You output to the console with console.log();
 console.log('variableDeclaration');
+console.log(`${variableDeclaration}`);
 
